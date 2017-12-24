@@ -1,14 +1,42 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>Lara</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-badge item-end>{{groceryList.length}}</ion-badge>
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-card class="grocery-list-card" *ngIf="groceryList.length">
+    <ion-item *ngFor="let item of groceryList">
+      {{item}}
+      <button ion-button item-end (click)="removeFromList(item)">Remove</button>
+    </ion-item>
+  </ion-card>
+  <div class="chat-section">
+    <ion-item *ngFor="let msg of chat">
+      <span [ngClass]="{ 'user-chat': msg.from === 'user', 'lara-chat': msg.from === 'lara' }" class="chat" text-wrap>{{msg.message}}</span>
+    </ion-item>
+
+    <ion-item *ngIf="isLaraTyping">
+      <span class="chat lara-chat">
+        <span class="typing-indicator">
+        <span></span>
+      <span></span>
+      <span></span>
+      </span>
+      </span>
+    </ion-item>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <lara-bot (chatUpdate)="handleChatUpdate($event)" (userChatUpdate)="handleUserChatUpdate($event)"></lara-bot>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

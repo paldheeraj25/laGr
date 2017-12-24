@@ -1,0 +1,15 @@
+<img class="lara" src="assets/imgs/lara2.png" />
+<ion-toolbar class="footer-toolbar">
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="lara" placeholder="Talk to Lara! type grocery here."></ion-input>
+  </ion-item>
+  <ion-buttons end>
+    <button ion-button icon-only (click)='laraChat()' [disabled]="!lara">
+				<ion-icon name="paper-plane"></ion-icon>
+			</button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-item class="footer-lara-commands">
+  <button ion-button round (click)='deliver()' color="primary">deliver it</button>
+  <button ion-button round (click)='showNumber()' color="secondary">call store</button>
+</ion-item>
