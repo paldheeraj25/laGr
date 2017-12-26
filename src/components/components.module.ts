@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { LaraBotComponent } from './lara-bot/lara-bot';
+
+import { FormsModule } from '@angular/forms';
 @NgModule({
-	declarations: [LaraBotComponent],
-	imports: [],
-	exports: [LaraBotComponent]
+  declarations: [],
+  imports: [FormsModule],
+  exports: []
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

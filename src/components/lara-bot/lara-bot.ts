@@ -18,7 +18,7 @@ export class LaraBotComponent {
   @Output() userChatUpdate = new EventEmitter();
 
   text: string;
-  public lara: string;
+  public lara: string = '';
   public chat: Message[] = [];
 
   constructor(public laraService: LaraBotProvider) {

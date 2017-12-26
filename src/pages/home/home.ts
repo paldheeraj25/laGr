@@ -11,7 +11,7 @@ import { pull } from 'lodash';
 })
 export class HomePage {
 
-  public chat: Message[] = [new IMessage('lara', 'try somethings like "1 colgate meduim" or "5kg basmati rice"')];
+  public chat: Message[] = [new IMessage('lara', 'try somethings like "1 colgate family pack" or "5kg basmati rice"')];
   public groceryList: string[] = [];
   public orderGroceryList: Order;
   public groceryAddress: string;
@@ -56,7 +56,9 @@ export class HomePage {
 
   orderList() {
     this.orderGroceryList = new IOrder(this.groceryList, this.groceryAddress);
-    this.groceryDataProvider.orderList(this.orderGroceryList);
+    this.groceryDataProvider.orderList(this.orderGroceryList).subscribe(res => {
+      console.log(res);
+    });
     //http call to save
     this.chat = [];
     this.groceryList = [];

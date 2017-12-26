@@ -1,7 +1,7 @@
 <img class="lara" src="assets/imgs/lara2.png" />
 <ion-toolbar class="footer-toolbar">
   <ion-item>
-    <ion-input type="text" [(ngModel)]="lara" placeholder="Talk to Lara! type grocery here."></ion-input>
+    <ion-input type="text" name="lara" [(ngModel)]="lara" placeholder="Talk to Lara! type grocery here."></ion-input>
   </ion-item>
   <ion-buttons end>
     <button ion-button icon-only (click)='laraChat()' [disabled]="!lara">
