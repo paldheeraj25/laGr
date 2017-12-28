@@ -18,7 +18,7 @@ export class GroceryDataProvider {
 
   orderList(order): Observable<any> {
     console.log("inside grocery list data service");
-    return this.http.post("http://45.33.34.17:/api/grocery", order).map(res => {
+    return this.http.post("http://45.33.34.17/api/grocery", order).map(res => {
       return res
     });
   }

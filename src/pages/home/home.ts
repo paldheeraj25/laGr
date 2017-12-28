@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { GroceryDataProvider } from '../../providers/grocery-data/grocery-data'
 import { Message, IMessage } from '../../interfaces/message.interface';
 import { Order, IOrder } from '../../interfaces/order.interface';
@@ -17,7 +18,7 @@ export class HomePage {
   public groceryAddress: string;
   public isLaraTyping: boolean;
 
-  constructor(public navCtrl: NavController, public groceryDataProvider: GroceryDataProvider) {
+  constructor(public navCtrl: NavController, public groceryDataProvider: GroceryDataProvider, public http: HttpClient) {
 
   }
 
@@ -59,6 +60,9 @@ export class HomePage {
     this.groceryDataProvider.orderList(this.orderGroceryList).subscribe(res => {
       console.log(res);
     });
+    // this.http.post("http://45.33.34.17:/api/grocery", this.orderGroceryList).map(res => {//http://45.33.34.17:/api/grocery
+    //   return res
+    // });
     //http call to save
     this.chat = [];
     this.groceryList = [];
